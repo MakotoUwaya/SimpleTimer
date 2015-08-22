@@ -47,8 +47,9 @@ namespace SimpleTimer
             {
                 TimerStop();
                 TimerReset();
-                MessageBox.Show(String.Format("{0}秒経過しました。", TimeLimit),
-                                "Infomation",MessageBoxButton.OK,MessageBoxImage.Information);
+                showBalloon();
+                //MessageBox.Show(String.Format("{0}秒経過しました。", TimeLimit),
+                //                "Infomation",MessageBoxButton.OK,MessageBoxImage.Information);
             }
         }
 
@@ -100,6 +101,17 @@ namespace SimpleTimer
         {
             oldtimespan = new TimeSpan();
             lblTime.Content = "00:00:000";
+        }
+
+        private void showBalloon()
+        {
+            SimpleBalloon balloon = new SimpleBalloon();
+
+            balloon.BalloonText = String.Format("{0}秒経過しました。",TimeLimit);
+            balloon.BalloonBody = "ダウンロードを開始できます。";
+
+            MyNotifyIcon.ShowCustomBalloon(balloon, PopupAnimation.Slide, 10000);
+
         }
 
     }

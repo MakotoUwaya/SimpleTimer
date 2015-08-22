@@ -1,11 +1,17 @@
 ﻿<Window x:Class="SimpleTimer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="StopWatch"  Height="195" Width="369" ResizeMode="CanMinimize">
+        xmlns:tb="http://www.hardcodet.net/taskbar"
+        Title="SimpleTimer"  Height="195" Width="369" ResizeMode="CanMinimize" Icon="/Icon/Stopwatch.ico">
     <Grid>
         <Label x:Name="lblTime" Content="00:00:000" HorizontalAlignment="Left" Height="54" Margin="37,33,0,0" VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36"/>
         <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="37,111,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <Button x:Name="btnStop" Content="Stop" HorizontalAlignment="Left" Margin="137,111,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="238,111,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+
+        <tb:TaskbarIcon
+            x:Name="MyNotifyIcon"
+            IconSource="/Icon/Stopwatch.ico"
+            ToolTipText="Simple Timer Balloon" />
     </Grid>
 </Window>
