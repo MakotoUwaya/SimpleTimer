@@ -12,7 +12,7 @@ namespace SimpleTimer
     public partial class MainWindow : Window
     {
         DispatcherTimer dispatcherTimer;    // タイマーオブジェクト
-        int TimeLimit = 30;                 // 制限時間
+        int TimeLimit = 3;                 // 制限時間
         DateTime StartTime;                 // カウント開始時刻
         TimeSpan nowtimespan;               // Startボタンが押されてから現在までの経過時間
         TimeSpan oldtimespan;               // 一時停止ボタンが押されるまでに経過した時間の蓄積
@@ -47,9 +47,11 @@ namespace SimpleTimer
             {
                 TimerStop();
                 TimerReset();
+                Microsoft.SmallBasic.Library.Sound.PlayChimes();
                 showBalloon();
                 //MessageBox.Show(String.Format("{0}秒経過しました。", TimeLimit),
                 //                "Infomation",MessageBoxButton.OK,MessageBoxImage.Information);
+
             }
         }
 
@@ -84,6 +86,7 @@ namespace SimpleTimer
             btnReset.IsEnabled = false;
             StartTime = DateTime.Now;
             dispatcherTimer.Start();
+            
         }
 
         // タイマー操作：停止
@@ -115,4 +118,7 @@ namespace SimpleTimer
         }
 
     }
+
+
+
 }
